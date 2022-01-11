@@ -12,6 +12,8 @@ export default ({
 	id,
 	inlineError = true,
 	label = '',
+	labelTrue = null,
+	labelFalse = null,
 	onChange,
 	required = false,
 	value = null,
@@ -22,10 +24,10 @@ export default ({
 			<Radio.Group disabled={disabled} name={id} onChange={e => onChange(e, id, e.target.value)} value={value}>
 				<Row gutter={[16, 16]}>
 					<Col span={24}>
-						<Radio value={true}>YES</Radio>
+						<Radio value={true}>{labelTrue ? labelTrue : 'YES'}</Radio>
 					</Col>
 					<Col span={24}>
-						<Radio value={false}>NO</Radio>
+						<Radio value={false}>{labelFalse ? labelFalse : 'NO'}</Radio>
 					</Col>
 				</Row>
 			</Radio.Group>
