@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Form, Radio, Row, Skeleton } from 'antd';
+import { Col, Form, Radio, Row, Skeleton, Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const browser = typeof window !== 'undefined' ? true : false;
 
@@ -9,6 +10,7 @@ export default ({
 	disabled = false,
 	error = null,
 	extra = null,
+	hasTooltip = false,
 	id,
 	inlineError = true,
 	label = '',
@@ -16,6 +18,7 @@ export default ({
 	labelFalse = null,
 	onChange,
 	required = false,
+	tooltip = null,
 	value = null,
 	withLabel = false
 }) => {
@@ -38,7 +41,17 @@ export default ({
 		colon: false,
 		label: withLabel ? (
 			<>
-				<div style={{ float: 'right' }}>{extra}</div> <span class="label">{label}</span>
+				<div style={{ float: 'right' }}>{extra}</div>{' '}
+				<span class="label">
+					{label}{' '}
+					{hasTooltip ? (
+						<Tooltip title={tooltip}>
+							<QuestionCircleOutlined />
+						</Tooltip>
+					) : (
+						''
+					)}
+				</span>
 			</>
 		) : (
 			false

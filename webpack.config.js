@@ -55,6 +55,7 @@ module.exports = {
 		libraryTarget: 'commonjs2'
 	},
 	externals: {
+		'@ant-design/icons': '@ant-design/icons',
 		antd: 'antd',
 		react: 'react',
 		'react-dom': 'react-dom'
